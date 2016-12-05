@@ -66,8 +66,7 @@ function text($text) {
 			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
 	else if (strpos($text, 'check') !== false) {
-			$zeth = file_get_contents('http://asri-wifi.no-ip.info:3333/');
-			sleep(5);
+			$zeth = get_data('http://asri-wifi.no-ip.info:3333');
 			$zeth1 = substr($zeth,strrpos($zeth, ',') + 1);
 			$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
@@ -90,23 +89,18 @@ function text($text) {
 	
 	
 	fclose($myfile);
-    return $zeth;
-	}
+    return $z;
+}
 	
-function getHtml($url, $post = null) {
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    if(!empty($post)) {
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-    } 
-    $result = curl_exec($ch);
-    curl_close($ch);
-    return $result;
+function get_data($url) {
+	$ch = curl_init();
+	$timeout = 50;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+	$data = curl_exec($ch);
+	curl_close($ch);
+	return $data;
 }
 echo "OK";
 ?>
