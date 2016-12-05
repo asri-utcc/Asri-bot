@@ -50,7 +50,9 @@ function text($text) {
 	//$zTmp = fgets($myfile);	
 	
 	if (strpos($text, 'eth') !== false) {
-			$z = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
+			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
+			$zeth1 = substr($zeth,strrpos($zeth, '.') + 1);
+			$z = strtok($zeth1, '}');
 		}else {
 			while (($zTmp = fgets($myfile)) !== false) {
 				$first = strtok($zTmp, '.');
