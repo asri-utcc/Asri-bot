@@ -42,8 +42,10 @@ if (!is_null($events['events'])) {
 
 
 function text($text) {
-    if (strpos($text, '�����') !== false) {
-		$z = "�Ш��մ��ҡ";
+    if (strpos($text, 'รัยมี') !== false) {
+		$z = "มะจูมีดำมาก";
+	}else {
+		$z = "อาอิชสวย";
 	}
     return $z;
 }
