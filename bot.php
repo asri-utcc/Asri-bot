@@ -66,7 +66,7 @@ function text($text) {
 			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
 	else if (strpos($text, 'check') !== false) {
-			$zeth = get_data('http://asri-wifi.no-ip.info:3333');
+			$zeth = get_data('http://5d69050d538f.sn.mynetname.net','3333');
 			$zeth1 = substr($zeth,strrpos($zeth, ',') + 1);
 			$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
@@ -89,13 +89,14 @@ function text($text) {
 	
 	
 	fclose($myfile);
-    return $$zeth;
+    return $zeth;
 }
 	
-function get_data($url) {
+function get_data($url,$port) {
 	$ch = curl_init();
 	$timeout = 20;
 	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_PORT, $port);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 	$data = curl_exec($ch);
