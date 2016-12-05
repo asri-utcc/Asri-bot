@@ -89,12 +89,12 @@ function text($text) {
 	
 	
 	fclose($myfile);
-    return $z;
+    return $$zeth;
 }
 	
 function get_data($url) {
 	$ch = curl_init();
-	$timeout = 50;
+	$timeout = 20;
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
