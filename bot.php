@@ -48,14 +48,19 @@ function text($text) {
     $myfile = fopen("listword.txt", "r") or die("Unable to open file!");
 	//echo fread($myfile,filesize("webdictionary.txt"));
 	//$zTmp = fgets($myfile);	
-	while (($zTmp = fgets($myfile)) !== false) {
-		$first = strtok($zTmp, '.');
-		if (strpos($text, $first) !== false) {
-			$z = substr($zTmp,strrpos($zTmp, '.') + 1);
-			break;
+	
+	if (strpos($text, 'eth') !== false) {
+			$z = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
 		}else {
-			$z = "อาอิชคนสวยไม่ว่างตอบคะ";
-		}
+			while (($zTmp = fgets($myfile)) !== false) {
+				$first = strtok($zTmp, '.');
+				if (strpos($text, $first) !== false) {
+					$z = substr($zTmp,strrpos($zTmp, '.') + 1);
+					break;
+				}else {
+					$z = "อาอิชคนสวยไม่ว่างตอบคะ";
+				}
+			}
 	}
 	
 	
