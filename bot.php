@@ -66,7 +66,7 @@ function text($text) {
 			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
 	else if (strpos($text, 'check') !== false) {
-			$zeth = get_data('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com','80');
+			$zeth = file_get_contents('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com');
 			/*$zeth1 = substr($zeth,strrpos($zeth, ',') + 1);
 			$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
@@ -93,7 +93,7 @@ function text($text) {
     return $z;
 }
 	
-function get_data($url,$port) {
+/*function get_data($url,$port) {
 	$ch = curl_init();
 	$timeout = 50;
 	curl_setopt($ch, CURLOPT_URL, $url);
@@ -103,6 +103,6 @@ function get_data($url,$port) {
 	$data = curl_exec($ch);
 	curl_close($ch);
 	return $data;
-}
+}*/
 echo "OK";
 ?>
