@@ -89,7 +89,7 @@ function text($text) {
 	
 	
 	fclose($myfile);
-    return $z;
+    return $zeth;
 	}
 echo "OK";
 ?>
