@@ -42,8 +42,8 @@ if (!is_null($events['events'])) {
 function text($text) {
     $myfile = fopen("listword.txt", "r") or die("Unable to open file!");
 	//echo fread($myfile,filesize("webdictionary.txt"));
-		
-	while (($zTmp = fgets($myfile))) !== false) {
+	$zTmp = fgets($myfile)	
+	//while (($zTmp = fgets($myfile))) !== false) {
 		$first = strtok($zTmp, '.');
 		if (strpos($text, $first) !== false) {
 			$z = substr($zTmp,strrpos($zTmp, '.') + 1);
@@ -51,7 +51,7 @@ function text($text) {
 		else {
 			$z = "อาอิชสวย";
 		}
-	}
+	//}
 	
 	
 	fclose($myfile);
