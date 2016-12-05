@@ -42,8 +42,8 @@ if (!is_null($events['events'])) {
 function text($text) {
     $myfile = fopen("listword.txt", "r") or die("Unable to open file!");
 	//echo fread($myfile,filesize("webdictionary.txt"));
-	$z = fgets($myfile);
-	$z = substr($z,".");
+	$zTmp = fgets($myfile);
+	$z = substr($zTmp,'.');
 	
 	/*if (strpos($text, 'รัยมี') !== false) {
 		$z = "มะจูมีดำมาก";
