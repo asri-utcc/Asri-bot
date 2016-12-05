@@ -76,6 +76,9 @@ function text($text) {
 			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
 			$z = $z . "ความเร็วรวมคำนวน" . $zeth1 . " Mh/s" . PHP_EOL;
+			$tmp = after(':',$tmp);
+			$zeth1 = before(',',$tmp);
+			$z = $z . "ความเร็วรวมคำนวน" . $tmp . PHP_EOL;
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
 			//$z1 = strtok($zeth3, ';');
