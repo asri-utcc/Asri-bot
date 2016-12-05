@@ -73,7 +73,7 @@ function text($text) {
 			$z1 = strtok($zeth3, ';');*/
 			if ($zeth !== ''){
 				//$z = "ความเร็วของเครื่องขุด darkas888 ตอนนี้คือ " . ($z1 / 1024) . "Mh/s";
-				$z = $zeth1;
+				$z = $zeth;
 			} else{$z = "เครื่อง daraks888 ดับค่ะ";}
 		}
 	else {
