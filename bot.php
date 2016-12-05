@@ -39,19 +39,20 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-
-
 function text($text) {
-    if (strpos($text, 'รัยมี') !== false) {
+    $myfile = fopen("listword.txt", "r") or die("Unable to open file!");
+	//echo fread($myfile,filesize("webdictionary.txt"));
+	$z = fgets($myfile);
+	fclose($myfile);
+	
+	/*if (strpos($text, 'รัยมี') !== false) {
 		$z = "มะจูมีดำมาก";
 	}else if (strpos($text, 'เยาะ') !== false) {
 		$z = "เยาะอิชหล่อสุดๆ";
 	} else {
 		$z = "อาอิชสวย";
-	}
+	}*/
     return $z;
 }
-
-
 echo "OK";
 ?>
