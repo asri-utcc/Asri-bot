@@ -66,7 +66,7 @@ function text($text) {
 			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
 	else if (strpos($text, 'check') !== false) {
-			$zeth = getHtml('http://asri-wifi.no-ip.info:3333/');
+			$zeth = file_get_contents('http://asri-wifi.no-ip.info:3333/');
 			$zeth1 = substr($zeth,strrpos($zeth, ',') + 1);
 			$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
