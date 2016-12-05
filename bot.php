@@ -67,7 +67,7 @@ function text($text) {
 		}
 	else if (strpos($text, 'check') !== false) {
 			$zeth = file_get_contents('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com');
-			$zeth1 = after (':',$zeth);
+			$zeth1 = before(',',after(':',$zeth));
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
 			//$z1 = strtok($zeth3, ';');
@@ -93,16 +93,44 @@ function text($text) {
     return $z;
 }
 	
-/*function get_data($url,$port) {
-	$ch = curl_init();
-	$timeout = 50;
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_PORT, $port);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-	$data = curl_exec($ch);
-	curl_close($ch);
-	return $data;
-}*/
+function after ($this, $inthat)
+    {
+        if (!is_bool(strpos($inthat, $this)))
+        return substr($inthat, strpos($inthat,$this)+strlen($this));
+    };
+
+function after_last ($this, $inthat)
+    {
+        if (!is_bool(strrevpos($inthat, $this)))
+        return substr($inthat, strrevpos($inthat, $this)+strlen($this));
+    };
+
+function before ($this, $inthat)
+    {
+        return substr($inthat, 0, strpos($inthat, $this));
+    };
+
+function before_last ($this, $inthat)
+    {
+        return substr($inthat, 0, strrevpos($inthat, $this));
+    };
+
+function between ($this, $that, $inthat)
+    {
+        return before ($that, after($this, $inthat));
+    };
+
+function between_last ($this, $that, $inthat)
+    {
+     return after_last($this, before_last($that, $inthat));
+    };
+
+// use strrevpos function in case your php version does not include it
+function strrevpos($instr, $needle)
+{
+    $rev_pos = strpos (strrev($instr), strrev($needle));
+    if ($rev_pos===false) return false;
+    else return strlen($instr) - $rev_pos - strlen($needle);
+};
 echo "OK";
 ?>
