@@ -52,9 +52,9 @@ function text($text) {
 		$first = strtok($zTmp, '.');
 		if (strpos($text, $first) !== false) {
 			$z = substr($zTmp,strrpos($zTmp, '.') + 1);
-			//break;
+			break;
 		}else {
-			$z = "อาอิชสวย";
+			$z = "อาอิชคนสวยไม่ว่างตอบคะ";
 		}
 	}
 	
