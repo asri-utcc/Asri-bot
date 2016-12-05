@@ -89,7 +89,7 @@ function text($text) {
 	
 	
 	fclose($myfile);
-    return $zeth;
+    return $z;
 }
 	
 function get_data($url,$port) {
