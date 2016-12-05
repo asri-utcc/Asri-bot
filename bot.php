@@ -63,17 +63,17 @@ function text($text) {
 			$z1 = strtok($zeth1, '}');
 			if ($z1 < 700){
 				$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
-			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . PHP_EOL . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
+			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
 	else if (strpos($text, 'check') !== false) {
 			$zeth = file_get_contents('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com');
-			$zeth1 = substr($zeth,strrpos($zeth, ',') + 1);
-			$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
-			$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
-			$z1 = strtok($zeth3, ';');
-			if ($zeth !== ''){
+			$zeth1 = substr($zeth,strrpos($zeth, 'error": ') + 1);
+			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
+			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
+			//$z1 = strtok($zeth3, ';');
+			if ($zeth1 !== ''){
 				//$z = "ความเร็วของเครื่องขุด darkas888 ตอนนี้คือ " . ($z1 / 1024) . "Mh/s";
-				$z = $zeth;
+				$z = $zeth1;
 			} else{$z = "เครื่อง daraks888 ดับค่ะ";}
 		}
 	else {
