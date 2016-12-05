@@ -70,10 +70,10 @@ function text($text) {
 			$zeth = file_get_contents('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com');
 			$tmp = after(':',$zeth);
 			$zeth1 = before(',',$tmp);
-			$tmp = after(':',$zeth1);
+			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
 			$z = "ความเร็วรวมท้งหมด " . $zeth1 . " Mh/s" . PHP_EOL;
-			$tmp = after(':',$zeth1);
+			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
 			$z = $z . "ความเร็วรวมคำนวน " . $zeth1 . " Mh/s" . PHP_EOL;
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
