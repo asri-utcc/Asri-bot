@@ -71,7 +71,7 @@ function text($text) {
 			$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
 			$z1 = strtok($zeth3, ';');*/
-			if ($z1 !== ''){
+			if ($zeth !== ''){
 				//$z = "ความเร็วของเครื่องขุด darkas888 ตอนนี้คือ " . ($z1 / 1024) . "Mh/s";
 				$z = $zeth1;
 			} else{$z = "เครื่อง daraks888 ดับค่ะ";}
