@@ -66,7 +66,7 @@ function text($text) {
 			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
 	else if (strpos($text, 'check') !== false) {
-			$zeth = include('http://5d69050d538f.sn.mynetname.net:3333/');
+			$zeth = getHtml('http://5d69050d538f.sn.mynetname.net:3333/');
 			$zeth1 = substr($zeth,strrpos($zeth, ',') + 1);
 			$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
@@ -91,5 +91,21 @@ function text($text) {
 	fclose($myfile);
     return $zeth;
 	}
+	
+function getHtml($url, $post = null) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    if(!empty($post)) {
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    } 
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}
 echo "OK";
 ?>
