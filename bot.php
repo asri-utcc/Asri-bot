@@ -43,8 +43,7 @@ function text($text) {
     $myfile = fopen("listword.txt", "r") or die("Unable to open file!");
 	//echo fread($myfile,filesize("webdictionary.txt"));
 	$z = fgets($myfile);
-	$z = fgets($myfile);
-	fclose($myfile);
+	$z = substr($z,".");
 	
 	/*if (strpos($text, 'รัยมี') !== false) {
 		$z = "มะจูมีดำมาก";
@@ -54,6 +53,7 @@ function text($text) {
 		$z = "อาอิชสวย";
 	}*/
     return $z;
+	fclose($myfile);
 }
 echo "OK";
 ?>
