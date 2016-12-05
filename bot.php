@@ -48,7 +48,7 @@ function text($text) {
 		if (strpos($text, $first) !== false) {
 			$z = substr($zTmp,strrpos($zTmp, '.') + 1);
 			//break;
-		else {
+		}else {
 			$z = "อาอิชสวย";
 		}
 	//}
@@ -56,7 +56,6 @@ function text($text) {
 	
 	fclose($myfile);
     return $first;
-	
-}
+	}
 echo "OK";
 ?>
