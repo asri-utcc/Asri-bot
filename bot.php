@@ -67,7 +67,7 @@ function text($text) {
 		}
 	else if (strpos($text, 'check') !== false) {
 			$zeth = file_get_contents('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com');
-			$zeth1 = before (',',after (':',$zeth));
+			$zeth1 = after (':',$zeth);
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
 			//$z1 = strtok($zeth3, ';');
