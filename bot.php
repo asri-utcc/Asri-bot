@@ -52,7 +52,10 @@ function text($text) {
 	if (strpos($text, 'eth') !== false) {
 			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
 			$zeth1 = substr($zeth,strrpos($zeth, ':') + 1);
-			$z = strtok($zeth1, '}');
+			$z1 = strtok($zeth1, '}');
+			if ($z1 < 9.5){
+				$z = "ETH ตอนนี้ราคา " . ($z1 * 35) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
+			} else{$z = "ETH ตอนนี้ราคา " . ($z1 * 35) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}else {
 			while (($zTmp = fgets($myfile)) !== false) {
 				$first = strtok($zTmp, '.');
