@@ -72,10 +72,10 @@ function text($text) {
 			$zeth1 = before(',',$tmp);
 			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
-			$z = "ความเร็วรวมท้งหมด " . $zeth1 . " Mh/s" . PHP_EOL;
+			$z = "ความเร็วรวมทั้งหมด" . $zeth1 . " Mh/s" . PHP_EOL;
 			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
-			$z = $z . "ความเร็วรวมคำนวน " . $zeth1 . " Mh/s" . PHP_EOL;
+			$z = $z . "ความเร็วรวมคำนวน" . $zeth1 . " Mh/s" . PHP_EOL;
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
 			//$z1 = strtok($zeth3, ';');
