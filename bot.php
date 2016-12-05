@@ -63,7 +63,7 @@ function text($text) {
 			$z1 = strtok($zeth1, '}');
 			if ($z1 < 700){
 				$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
-			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . nl2br("บาทค่ะ \nราคาดีหน่อย ขายได้ขายเลยคะ");}
+			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . nl2br() . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
 	else if (strpos($text, 'check') !== false) {
 			$zeth = file_get_contents('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com');
