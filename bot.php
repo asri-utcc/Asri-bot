@@ -65,6 +65,16 @@ function text($text) {
 				$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
 			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
+	else if (strpos($text, 'check') !== false) {
+			$zeth = file_get_contents('http://5d69050d538f.sn.mynetname.net:3333/');
+			$zeth1 = substr($zeth,strrpos($zeth, ',') + 1);
+			$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
+			$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
+			$z1 = strtok($zeth3, ';');
+			if ($z1 !== ''){
+				$z = "ความเร็วของเครื่องขุด darkas888 ตอนนี้คือ " . ($z1 / 1024) . "Mh/s";
+			} else{$z = "เครื่อง daraks888 ดับค่ะ";}
+		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
 				$first = strtok($zTmp, '.');
