@@ -44,7 +44,9 @@ if (!is_null($events['events'])) {
 function text($text) {
     if (strpos($text, 'รัยมี') !== false) {
 		$z = "มะจูมีดำมาก";
-	}else {
+	}else if (strpos($text, 'เยาะ') !== false) {
+		$z = "เยาะอิชหล่อสุดๆ";
+	} else {
 		$z = "อาอิชสวย";
 	}
     return $z;
