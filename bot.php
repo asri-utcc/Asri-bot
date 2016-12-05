@@ -94,7 +94,7 @@ function text($text) {
 	
 function get_data($url,$port) {
 	$ch = curl_init();
-	$timeout = 20;
+	$timeout = 50;
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_PORT, $port);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
