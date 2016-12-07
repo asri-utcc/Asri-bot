@@ -103,8 +103,8 @@ function text($text) {
 					$z = $z . "Hash Calc " . $hash . " Mh/s" . PHP_EOL;
 					$tmp = after(',',$tmp);
 					$tmp = after(',',$tmp);
-					$sec = between('""second_since_submit": ": ', ',', $tmp);
-					$z = $z . "ตรวจสอบล่าสุดเมื่อ " . $sec . " วินาทีที่แล้ว" . PHP_EOL;
+					$sec = between('"second_since_submit": ', ',', $tmp);
+					$z = $z . "ตรวจสอบล่าสุดเมื่อ " . (int)($sec / 60) . " วินาทีที่แล้ว" . PHP_EOL;
 					$tmp = after('},',$tmp);
 					$z = $z . "----------------------------------------" . PHP_EOL;					
 				}
