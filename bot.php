@@ -69,7 +69,8 @@ function text($text) {
 			$z = check();
 		}
 	else if (strpos($text, 'dwarf') !== false) {
-			$z = file_get_html('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
+			$html = file_get_html('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
+			$z = $html->plaintext
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
