@@ -78,7 +78,7 @@ function text($text) {
 			$balance = between ('money">', '</span', $html);
 			
 			$html = after("badge badge",$html);
-			if if (strpos($$html, 'but') !== true){
+			if (strpos($html, 'but') !== true){
 				$alpaid = between ('money">', '</span', $html);
 			} else {
 				$unbal = between ('money">', '</span', $html);
