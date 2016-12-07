@@ -82,9 +82,9 @@ function text($text) {
 			//$z = $z . $tmp . PHP_EOL;
 			if (before(':',$tmp) == '"workers"'){
 				$workers = substr_count($tmp,'{') - 1;
-				$z = $z . "มีเครื่องขุดที่อยู่ในรายการจำนวน " . $workers . " เครื่อง" . PHP_EOL;
-			} else {
-				$z = $z . before(':',$tmp);
+				$z = $z . "แท่นขุดในรายการจำนวน " . $workers . " เครื่อง" . PHP_EOL;
+				$tmp = after('{',$tmp)
+				$z = $z . $tmp . PHP_EOL
 			}
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
