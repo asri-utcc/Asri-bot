@@ -78,7 +78,7 @@ function text($text) {
 			$balance = between ('money">', '</span', $html);
 			
 			$html = after("badge badge",$html);
-			if (between("</span>", "</li>", $html) == (PHP_EOL . "Already paid")){
+			if (between("</span>", "</li>", $html) == "\nAlready paid"){
 				$alpaid = between ('money">', '</span', $html);
 			} else {
 				$unbal = between ('money">', '</span', $html);
