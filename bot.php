@@ -94,6 +94,15 @@ function text($text) {
 function  check ()
     {
 		$z='';
+		$html = get_url_contents("http://dwarfpool.com/eth/address?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a");
+		$html = after('Earnings',$html);
+		$z = strip_tags(substr($html,0,651));
+		return $z;
+   };
+   
+function  check ()
+    {
+		$z='';
 		$zeth = file_get_contents('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com');
 		$tmp = after(':',$zeth);
 		$zeth1 = before(',',$tmp);
