@@ -90,15 +90,6 @@ function text($text) {
     return $z;
 }
 	
-
-function  check ()
-    {
-		$z='';
-		$html = get_url_contents("http://dwarfpool.com/eth/address?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a");
-		$html = after('Earnings',$html);
-		$z = substr($html,0,651);
-		return $z;
-   };
    
 function  check ()
     {
