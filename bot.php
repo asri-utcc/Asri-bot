@@ -87,7 +87,7 @@ function text($text) {
 				//$tmp = between('"', '"', $tmp);
 				for ($i = 0 ; $i < $workers ; $i++){
 					$worker_name = between('"', '"', $tmp);
-					$z = $z . $i+1 . " ชื่อ " . $worker_name . PHP_EOL;
+					$z = $z . ($i + 1) . " ชื่อ " . $worker_name . PHP_EOL;
 					$tmp = after('"alive": ',$tmp);
 					if if (before(',',$tmp) == '"true"'){
 						$z = $z . "เครื่องทำงานปกติ" . PHP_EOL ;
@@ -109,13 +109,6 @@ function text($text) {
 				}
 				//$z = $z . $tmp . PHP_EOL;
 			}
-			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
-			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
-			//$z1 = strtok($zeth3, ';');
-			/*if ($zeth1 !== ''){
-				//$z = "ความเร็วของเครื่องขุด darkas888 ตอนนี้คือ " . ($z1 / 1024) . "Mh/s";
-				$z = $zeth1;
-			} else{$z = "เครื่อง daraks888 ดับค่ะ";}*/
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
