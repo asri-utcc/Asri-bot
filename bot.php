@@ -97,7 +97,7 @@ function text($text) {
 			$btc = between ('Rates ">', ' &', $html);
 			$usd = between ('; ', ' $', $html);
 			
-			$z = "ยอดเงินที่ขุดได้ตอนนี้ " . $balance . PHP_EOL . "ยอดเงินที่ขุดแล้วแต่ยังไม่ได้ " .  $unbal . PHP_EOL . "ยอดเงินที่จ่ายแล้ว " .  $alpaid . PHP_EOL . "ยอดเงินที่ยังไม่ยืนยัน " .  $uncon . PHP_EOL . "ยอดจ่ายในรอบ24ชม. " .  $e24h . PHP_EOL . "ราคาเป็น BTC " .  $btc . " BTC" .  PHP_EOL . "ราคาเป็น USD " .  $usd . " $";
+			$z = "ยอดเงินที่ขุดได้ตอนนี้ " . $balance . PHP_EOL . "ยอดเงินที่ขุดแล้วแต่ยังไม่ได้ " .  $unbal . PHP_EOL . "ยอดเงินที่จ่ายแล้ว " .  $alpaid . PHP_EOL . "ยอดที่ยังไม่ยืนยัน " .  $uncon . PHP_EOL . "ยอดในรอบ24ชม. " .  $e24h . PHP_EOL . "ราคาเป็น BTC " .  $btc . " BTC" .  PHP_EOL . "ราคาเป็น USD " .  $usd . " $";
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
