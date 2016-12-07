@@ -74,7 +74,7 @@ function text($text) {
 			$z = "ความเร็วรวมทั้งหมด" . $zeth1 . " Mh/s" . PHP_EOL;
 			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
-			$z = $z . "ความเร็วรวมคำนวน" . $zeth1 . " Mh/s";
+			$z = $z . "ความเร็วรวมคำนวน" . $zeth1 . " Mh/s" . PHP_EOL;
 			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
 			$tmp = after(',',$tmp);
