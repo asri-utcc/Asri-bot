@@ -87,10 +87,25 @@ function text($text) {
 				//$tmp = between('"', '"', $tmp);
 				for ($i = 0 ; $i < $workers ; $i++){
 					$worker_name = between('"', '"', $tmp);
+					$z = $z . $i+1 . " ชื่อ " . $worker_name . PHP_EOL;
 					$tmp = after('"alive": ',$tmp);
-					$z = $z . $worker_name . PHP_EOL;
+					if if (before(',',$tmp) == '"true"'){
+						$z = $z . "เครื่องทำงานปกติ" . PHP_EOL ;
+					} else {$z = $z . "เครื่องดับ" . PHP_EOL ;}
+					$tmp = after(',',$tmp);
+					$hash = between('"hashrate": ', ',', $tmp);
+					$z = $z . "HashRate " . $hash . " Mh/s" . PHP_EOL;
+					$tmp = after(',',$tmp);
+					$tmp = after(',',$tmp);
+					$hash = between('"hashrate_calculated": ', ',', $tmp);
+					$z = $z . "Hash Calc " . $hash . " Mh/s" . PHP_EOL;
+					$tmp = after(',',$tmp);
+					$tmp = after(',',$tmp);
+					$sec = between('""second_since_submit": ": ', ',', $tmp) / 60;
+					$z = $z . "ตรวจสอบล่าสุดเมื่อ " . (int)$sec . " นาทีที่แล้ว" . PHP_EOL;
+					$tmp = after('},',$tmp);	
 				}
-				$z = $z . $tmp . PHP_EOL;
+				//$z = $z . $tmp . PHP_EOL;
 			}
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
