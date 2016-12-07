@@ -68,9 +68,10 @@ function text($text) {
 	else if (strpos($text, 'check') !== false) {
 			$z = check();
 		}
-	else if (strpos($text, 'dwarf') !== false) {
-			$html = file_get_html('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
-			$z = $html->plaintext ;
+	else if (strpos($text, 'dwar') !== false) {
+			$html = get_url_contents("http://dwarfpool.com/eth/address?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a");
+			$html = after('Earnings',$html);
+			$z = substr($html,0,651);
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
@@ -167,12 +168,15 @@ function between_last ($this, $that, $inthat)
     {
      return after_last($this, before_last($that, $inthat));
     };
-// use strrevpos function in case your php version does not include it
-function strrevpos($instr, $needle)
-{
-    $rev_pos = strpos (strrev($instr), strrev($needle));
-    if ($rev_pos===false) return false;
-    else return strlen($instr) - $rev_pos - strlen($needle);
-};
+function get_url_contents($url){
+        $crl = curl_init();
+        $timeout = 5;
+        curl_setopt ($crl, CURLOPT_URL,$url);
+        curl_setopt ($crl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt ($crl, CURLOPT_CONNECTTIMEOUT, $timeout);
+        $ret = curl_exec($crl);
+        curl_close($crl);
+        return $ret;
+}
 echo "OK";
 ?>
