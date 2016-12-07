@@ -79,12 +79,12 @@ function text($text) {
 			$zeth1 = before(',',$tmp);
 			$tmp = after(',',$tmp);
 			$tmp = after('  ',$tmp);
-			$z = $z . "----------" . PHP_EOL;
+			$z = $z . "----------------------------------------" . PHP_EOL;
 			if (before(':',$tmp) == '"workers"'){
 				$workers = substr_count($tmp,'{') - 1;
 				$z = $z . "แท่นขุดในรายการจำนวน " . $workers . " เครื่อง" . PHP_EOL;
 				$tmp = after('{',$tmp);
-				//$tmp = between('"', '"', $tmp);
+				$z = $z . "----------------------------------------" . PHP_EOL;
 				for ($i = 0 ; $i < $workers ; $i++){
 					$worker_name = between('"', '"', $tmp);
 					$z = $z . ($i + 1) . " ชื่อ " . $worker_name . PHP_EOL;
@@ -106,7 +106,7 @@ function text($text) {
 					$sec = between('""second_since_submit": ": ', ',', $tmp) / 60;
 					$z = $z . "ตรวจสอบล่าสุดเมื่อ " . (int)$sec . " นาทีที่แล้ว" . PHP_EOL;
 					$tmp = after('},',$tmp);
-					$z = $z . "----------" . PHP_EOL;					
+					$z = $z . "----------------------------------------" . PHP_EOL;					
 				}
 				//$z = $z . $tmp . PHP_EOL;
 			}
