@@ -81,7 +81,8 @@ function text($text) {
 			$tmp = after('  ',$tmp);
 			//$z = $z . $tmp . PHP_EOL;
 			if (before(':',$tmp) == '"workers"'){
-				$z = $z . $tmp . PHP_EOL;
+				$workers = substr_count($tmp,'{') - 1;
+				$z = $z . "มีเครื่องขุดที่อยู่ในรายการจำนวน " . $workers . " เครื่อง" . PHP_EOL;
 			} else {
 				$z = $z . before(':',$tmp);
 			}
