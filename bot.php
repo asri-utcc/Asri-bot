@@ -69,7 +69,7 @@ function text($text) {
 			$z = check();
 		}
 	else if (strpos($text, 'dwar') !== false) {
-			$unbal = 0;
+			$unbal = "0 ETH";
 			$html = get_url_contents("http://dwarfpool.com/eth/address?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a");
 			$html = after('Earnings',$html);
 			$html = substr($html,0,651);
@@ -97,7 +97,7 @@ function text($text) {
 			$btc = between ('Rates ">', ' &', $html);
 			$usd = between ('; ', ' $', $html);
 			
-			$z = "ยอดเงินที่ขุดได้ตอนนี้ " . $balance . PHP_EOL . "ยอดเงินที่ขุดแล้วแต่ยังไม่ได้ " .  $unbal . PHP_EOL . "ยอดเงินที่จ่ายแล้ว " .  $alpaid . PHP_EOL . "ยอดเงินที่ยังไม่ยืนยัน " .  $uncon . PHP_EOL . "ยอดจ่ายในรอบ24ชม. " .  $alpaid . PHP_EOL . "ราคาเป็น BTC " .  $alpaid . " BTC" .  PHP_EOL . "ราคาเป็น USD " .  $alpaid . " $";
+			$z = "ยอดเงินที่ขุดได้ตอนนี้ " . $balance . PHP_EOL . "ยอดเงินที่ขุดแล้วแต่ยังไม่ได้ " .  $unbal . PHP_EOL . "ยอดเงินที่จ่ายแล้ว " .  $alpaid . PHP_EOL . "ยอดเงินที่ยังไม่ยืนยัน " .  $uncon . PHP_EOL . "ยอดจ่ายในรอบ24ชม. " .  $e24h . PHP_EOL . "ราคาเป็น BTC " .  $btc . " BTC" .  PHP_EOL . "ราคาเป็น USD " .  $usd . " $";
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
