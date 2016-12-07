@@ -1,6 +1,5 @@
 <?php
 $access_token = 'pTEHeInoIt5on143F+kYg6D//GGUbrDcPTFtrXQGFLCVFPa3OZbjVBkug2cTevT0EkeCF68zeILcBXw28aiucQco/qtCf6HgfgxIuJX0Lm9TSV8WV6iQdGa1KXFuOQvQ0dbT1tinCAqfC6B8MrGyxgdB04t89/1O/w1cDnyilFU=';
-
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -78,7 +77,8 @@ function text($text) {
 			$z = $z . "ความเร็วรวมคำนวน" . $zeth1 . " Mh/s" . PHP_EOL;
 			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
-			$z = $z . "ความเร็วรวมคำนวน" . $tmp . PHP_EOL;
+			$tmp = after(':',$tmp);
+			$z = $z . $tmp . PHP_EOL;
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
 			//$z1 = strtok($zeth3, ';');
@@ -109,33 +109,27 @@ function after ($this, $inthat)
         if (!is_bool(strpos($inthat, $this)))
         return substr($inthat, strpos($inthat,$this)+strlen($this));
     };
-
 function after_last ($this, $inthat)
     {
         if (!is_bool(strrevpos($inthat, $this)))
         return substr($inthat, strrevpos($inthat, $this)+strlen($this));
     };
-
 function before ($this, $inthat)
     {
         return substr($inthat, 0, strpos($inthat, $this));
     };
-
 function before_last ($this, $inthat)
     {
         return substr($inthat, 0, strrevpos($inthat, $this));
     };
-
 function between ($this, $that, $inthat)
     {
         return before ($that, after($this, $inthat));
     };
-
 function between_last ($this, $that, $inthat)
     {
      return after_last($this, before_last($that, $inthat));
     };
-
 // use strrevpos function in case your php version does not include it
 function strrevpos($instr, $needle)
 {
