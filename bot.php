@@ -83,7 +83,7 @@ function text($text) {
 			if (before(':',$tmp) == '"workers"'){
 				$workers = substr_count($tmp,'{') - 1;
 				$z = $z . "แท่นขุดในรายการจำนวน " . $workers . " เครื่อง" . PHP_EOL;
-				$tmp = after('{',$tmp)
+				$tmp = after('{',$tmp);
 				$z = $z . $tmp . PHP_EOL;
 			}
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
