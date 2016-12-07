@@ -69,13 +69,24 @@ function text($text) {
 			$z = check();
 		}
 	else if (strpos($text, 'dwar') !== false) {
+			$unbal = 0;
 			$html = get_url_contents("http://dwarfpool.com/eth/address?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a");
 			$html = after('Earnings',$html);
 			$html = substr($html,0,651);
-			$z = before ("Current balance",$html) . PHP_EOL;
-			$html = after("Current balance",$html);
-			//$html = after(PHP_EOL,$html);
-			$z = $z . $html;
+			
+			$html = after("badge badge",$html);
+			$balance = between ('money">', '</span', $html);
+			
+			$html = after("badge badge",$html);
+			if (between("</span>", "</li>", $html) == "Already paid"){
+				$alpaid = between ('money">', '</span', $html);
+			} else {
+				$unbal = between ('money">', '</span', $html);
+				$html = after("badge badge",$html);
+				$alpaid = between ('money">', '</span', $html);
+			}
+			
+			$z = $balance . PHP_EOL . $unbal . PHP_EOL . $alpaid;
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
