@@ -69,7 +69,7 @@ function text($text) {
 			$z = check();
 		}
 	else if (strpos($text, 'dwarf') !== false) {
-			$z = file_get_contents('http://dwarfpool.com/eth/address?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a');
+			$z = file_get_html('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
