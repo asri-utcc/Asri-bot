@@ -89,7 +89,7 @@ function text($text) {
 					$worker_name = between('"', '"', $tmp);
 					$z = $z . ($i + 1) . " ชื่อ " . $worker_name . PHP_EOL;
 					$tmp = after('"alive": ',$tmp);
-					if if (before(',',$tmp) == '"true"'){
+					if (before(',',$tmp) == '"true"'){
 						$z = $z . "เครื่องทำงานปกติ" . PHP_EOL ;
 					} else {
 						$z = $z . "เครื่องดับ" . PHP_EOL ;
