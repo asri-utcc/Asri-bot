@@ -67,6 +67,9 @@ function text($text) {
 	else if (strpos($text, 'check') !== false) {
 			$z = check();
 		}
+	else if (strpos($text, 'dwarf') !== false) {
+			$z = before ('Anonymous',file_get_contents('http://dwarfpool.com/eth/address?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a'));
+		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
 				$first = strtok($zTmp, '.');
