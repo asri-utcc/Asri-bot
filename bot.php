@@ -65,52 +65,11 @@ function text($text) {
 				$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
 			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
-	else if (strpos($text, 'check') !== false) {
+	else if (strpos($text, 'check') !== false || strpos($text, 'ขุด') !== false) {
 			$z = check();
 		}
-	else if (strpos($text, 'dwar') !== false) {
-			$unbal = "0 ETH";
-			$html = get_url_contents("http://dwarfpool.com/eth/address?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a");
-			$html = after('Earnings',$html);
-			$html = substr($html,0,651);
-			
-			$html = after("badge badge",$html);
-			$balance = between ('money">', '</span', $html);
-			
-			$html = after("badge badge",$html);
-			if (strpos($html, 'but') !== true){
-				$alpaid = between ('money">', '</span', $html);
-			} else {
-				$unbal = between ('money">', '</span', $html);
-				$html = after("badge badge",$html);
-				$alpaid = between ('money">', '</span', $html);
-			}
-			
-			$html = after("badge badge",$html);
-			$uncon = between ('money">', '</span', $html);
-			
-			$html = after("badge badge",$html);
-			$e24h = between ('money">', '<br', $html);
-			
-			
-			$html = after('75%;">',$html);
-			$btc = between ('Rates ', ' &', $html);
-			$usd = between ('; ', ' $', $html);
-			$z = $z . "----------------------------------------" . PHP_EOL;
-			$z = "ยอดเงินที่ขุดได้ตอนนี้ " . $balance . PHP_EOL;
-			$z = $z . "----------------------------------------" . PHP_EOL;			
-			$z = $z . "ยอดเงินที่ขุดแล้วแต่ยังไม่ได้ " .  $unbal . PHP_EOL;
-			$z = $z . "----------------------------------------" . PHP_EOL;
-			$z = $z . "ยอดเงินที่จ่ายแล้ว " .  $alpaid . PHP_EOL;
-			$z = $z . "----------------------------------------" . PHP_EOL;
-			$z = $z . "ยอดที่ยังไม่ยืนยัน " .  $uncon . PHP_EOL;
-			$z = $z . "----------------------------------------" . PHP_EOL;
-			$z = $z . "ยอดในรอบ24ชม. " .  $e24h . PHP_EOL;
-			$z = $z . "----------------------------------------" . PHP_EOL;
-			$z = $z . "ราคาเป็น BTC " .  $btc . " BTC" .  PHP_EOL;
-			$z = $z . "----------------------------------------" . PHP_EOL;
-			$z = $z . "ราคาเป็น USD " .  $usd . " $" .  PHP_EOL;
-			$z = $z . "----------------------------------------" . PHP_EOL;
+	else if (strpos($text, 'dwar') !== false || strpos($text, 'เงิน') !== false) {
+			$z = dwarfpool();
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
@@ -181,6 +140,52 @@ function  check ()
    };	
 
 	
+function dwarfpool ()
+    {
+        $unbal = "0 ETH";
+			$html = get_url_contents("http://dwarfpool.com/eth/address?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a");
+			$html = after('Earnings',$html);
+			$html = substr($html,0,651);
+			
+			$html = after("badge badge",$html);
+			$balance = between ('money">', '</span', $html);
+			
+			$html = after("badge badge",$html);
+			if (strpos($html, 'but') !== true){
+				$alpaid = between ('money">', '</span', $html);
+			} else {
+				$unbal = between ('money">', '</span', $html);
+				$html = after("badge badge",$html);
+				$alpaid = between ('money">', '</span', $html);
+			}
+			
+			$html = after("badge badge",$html);
+			$uncon = between ('money">', '</span', $html);
+			
+			$html = after("badge badge",$html);
+			$e24h = between ('money">', '<br', $html);
+			
+			
+			$html = after('75%;">',$html);
+			$btc = between ('Rates ', ' &', $html);
+			$usd = between ('; ', ' $', $html);
+			$z = "----------------------------------------" . PHP_EOL;
+			$z = "ยอดเงินที่ขุดได้ตอนนี้ " . $balance . PHP_EOL;
+			$z = $z . "----------------------------------------" . PHP_EOL;			
+			$z = $z . "ยอดเงินที่ขุดแล้วแต่ยังไม่ได้ " .  $unbal . PHP_EOL;
+			$z = $z . "----------------------------------------" . PHP_EOL;
+			$z = $z . "ยอดเงินที่จ่ายแล้ว " .  $alpaid . PHP_EOL;
+			$z = $z . "----------------------------------------" . PHP_EOL;
+			$z = $z . "ยอดที่ยังไม่ยืนยัน " .  $uncon . PHP_EOL;
+			$z = $z . "----------------------------------------" . PHP_EOL;
+			$z = $z . "ยอดในรอบ24ชม. " .  $e24h . PHP_EOL;
+			$z = $z . "----------------------------------------" . PHP_EOL;
+			$z = $z . "ราคาเป็น BTC " .  $btc . " BTC" .  PHP_EOL;
+			$z = $z . "----------------------------------------" . PHP_EOL;
+			$z = $z . "ราคาเป็น USD " .  $usd . " $" .  PHP_EOL;
+			$z = $z . "----------------------------------------" . PHP_EOL;
+        return $z;
+    };
 function after ($this, $inthat)
     {
         if (!is_bool(strpos($inthat, $this)))
