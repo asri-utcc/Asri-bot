@@ -78,8 +78,9 @@ function text($text) {
 			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
 			$tmp = after(',',$tmp);
+			$tmp = after('  ',$tmp);
 			//$z = $z . $tmp . PHP_EOL;
-			if (before(':',$tmp) == '  "workers"'){
+			if (before(':',$tmp) == '"workers"'){
 				$z = $z . $tmp . PHP_EOL;
 			} else {
 				$z = $z . before(':',$tmp);
