@@ -104,7 +104,7 @@ function text($text) {
 					$tmp = after(',',$tmp);
 					$tmp = after(',',$tmp);
 					$sec = between('""second_since_submit": ": ', ',', $tmp);
-					$z = $z . "ตรวจสอบล่าสุดเมื่อ " . ($sec / 60) . " นาทีที่แล้ว" . PHP_EOL;
+					$z = $z . "ตรวจสอบล่าสุดเมื่อ " . $sec . " วินาทีที่แล้ว" . PHP_EOL;
 					$tmp = after('},',$tmp);
 					$z = $z . "----------------------------------------" . PHP_EOL;					
 				}
