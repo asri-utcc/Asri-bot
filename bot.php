@@ -86,7 +86,18 @@ function text($text) {
 				$alpaid = between ('money">', '</span', $html);
 			}
 			
-			$z = $balance . PHP_EOL . $unbal . PHP_EOL . $alpaid;
+			$html = after("badge badge",$html);
+			$uncon = between ('money">', '</span', $html);
+			
+			$html = after("badge badge",$html);
+			$e24h = between ('money">', '<br', $html);
+			
+			
+			$html = after('75%;">',$html);
+			$btc = between ('Rates ">', ' &', $html);
+			$usd = between ('; ', ' $', $html);
+			
+			$z = "ยอดเงินที่ขุดได้ตอนนี้ " . $balance . PHP_EOL . "ยอดเงินที่ขุดแล้วแต่ยังไม่ได้ " .  $unbal . PHP_EOL . "ยอดเงินที่จ่ายแล้ว " .  $alpaid . PHP_EOL . "ยอดเงินที่ยังไม่ยืนยัน " .  $uncon . PHP_EOL . "ยอดจ่ายในรอบ24ชม. " .  $alpaid . PHP_EOL . "ราคาเป็น BTC " .  $alpaid . " BTC" .  PHP_EOL . "ราคาเป็น USD " .  $alpaid . " $";
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
