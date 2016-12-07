@@ -78,15 +78,15 @@ function text($text) {
 			$balance = between ('money">', '</span', $html);
 			
 			$html = after("badge badge",$html);
-			if (between("</span>", "</li>", $html) == "Already paid"){
+			/*if (between("</span>", "</li>", $html) == "Already paid"){
 				$alpaid = between ('money">', '</span', $html);
 			} else {
 				$unbal = between ('money">', '</span', $html);
 				$html = after("badge badge",$html);
 				$alpaid = between ('money">', '</span', $html);
-			}
+			}*/
 			
-			$z = $balance . PHP_EOL . $unbal . PHP_EOL . $alpaid;
+			$z = $balance . PHP_EOL . between("</span>", "</li>", $html);
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
