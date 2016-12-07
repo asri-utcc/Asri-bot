@@ -78,7 +78,8 @@ function text($text) {
 			$tmp = after(':',$tmp);
 			$zeth1 = before(',',$tmp);
 			$tmp = after(',',$tmp);
-			$z = $z . $tmp . PHP_EOL;
+			//$z = $z . $tmp . PHP_EOL;
+			if (before(':',$tmp) == ' "workers"'){$z = $z . $tmp . PHP_EOL;}
 			//$zeth2 = substr($zeth1,strrpos($zeth1, ',') + 1);
 			//$zeth3 = substr($zeth2,strrpos($zeth2, '"') + 1);
 			//$z1 = strtok($zeth3, ';');
