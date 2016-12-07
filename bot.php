@@ -65,51 +65,7 @@ function text($text) {
 			} else{$z = "BTC ตอนนี้ราคา " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
 	else if (strpos($text, 'check') !== false) {
-			$z='';
-			$zeth = file_get_contents('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com');
-			$tmp = after(':',$zeth);
-			$zeth1 = before(',',$tmp);
-			$tmp = after(':',$tmp);
-			$zeth1 = before(',',$tmp);
-			$z = "ความเร็วรวมทั้งหมด" . $zeth1 . " Mh/s" . PHP_EOL;
-			$tmp = after(':',$tmp);
-			$zeth1 = before(',',$tmp);
-			$z = $z . "ความเร็วรวมคำนวน" . $zeth1 . " Mh/s" . PHP_EOL;
-			$tmp = after(':',$tmp);
-			$zeth1 = before(',',$tmp);
-			$tmp = after(',',$tmp);
-			$tmp = after('  ',$tmp);
-			$z = $z . "----------------------------------------" . PHP_EOL;
-			if (before(':',$tmp) == '"workers"'){
-				$workers = substr_count($tmp,'{') - 1;
-				$z = $z . "แท่นขุดในรายการจำนวน " . $workers . " เครื่อง" . PHP_EOL;
-				$tmp = after('{',$tmp);
-				$z = $z . "----------------------------------------" . PHP_EOL;
-				for ($i = 0 ; $i < $workers ; $i++){
-					$worker_name = between('"', '"', $tmp);
-					$z = $z . ($i + 1) . " ชื่อ " . $worker_name . PHP_EOL;
-					$tmp = after('"alive": ',$tmp);
-					if (before(',',$tmp) == 'true'){
-						$z = $z . "เครื่องทำงานปกติ" . PHP_EOL ;
-					} else {
-						$z = $z . "เครื่องดับ" . PHP_EOL ;
-						}
-					$tmp = after(',',$tmp);
-					$hash = between('"hashrate": ', ',', $tmp);
-					$z = $z . "HashRate " . $hash . " Mh/s" . PHP_EOL;
-					$tmp = after(',',$tmp);
-					$tmp = after(',',$tmp);
-					$hash = between('"hashrate_calculated": ', ',', $tmp);
-					$z = $z . "Hash Calc " . $hash . " Mh/s" . PHP_EOL;
-					$tmp = after(',',$tmp);
-					$tmp = after(',',$tmp);
-					$sec = between('"second_since_submit": ', ',', $tmp);
-					$z = $z . "ตรวจสอบล่าสุดเมื่อ " . (int)($sec / 60) . " นาทีที่แล้ว" . PHP_EOL;
-					$tmp = after('},',$tmp);
-					$z = $z . "----------------------------------------" . PHP_EOL;					
-				}
-				//$z = $z . $tmp . PHP_EOL;
-			}
+			$z = check();
 		}
 	else {
 			while (($zTmp = fgets($myfile)) !== false) {
@@ -127,6 +83,58 @@ function text($text) {
 	fclose($myfile);
     return $z;
 }
+	
+
+function  check ()
+    {
+		$z='';
+		$zeth = file_get_contents('http://dwarfpool.com/eth/api?wallet=0xe331cae9bde726414985883aa5b5d40abc22c09a&email=asri.utcc@gmail.com');
+		$tmp = after(':',$zeth);
+		$zeth1 = before(',',$tmp);
+		$tmp = after(':',$tmp);
+		$zeth1 = before(',',$tmp);
+		$z = "ความเร็วรวมทั้งหมด" . $zeth1 . " Mh/s" . PHP_EOL;
+		$tmp = after(':',$tmp);
+		$zeth1 = before(',',$tmp);
+		$z = $z . "ความเร็วรวมคำนวน" . $zeth1 . " Mh/s" . PHP_EOL;
+		$tmp = after(':',$tmp);
+		$zeth1 = before(',',$tmp);
+		$tmp = after(',',$tmp);
+		$tmp = after('  ',$tmp);
+		$z = $z . "----------------------------------------" . PHP_EOL;
+		if (before(':',$tmp) == '"workers"'){
+			$workers = substr_count($tmp,'{') - 1;
+			$z = $z . "แท่นขุดในรายการจำนวน " . $workers . " เครื่อง" . PHP_EOL;
+			$tmp = after('{',$tmp);
+			$z = $z . "----------------------------------------" . PHP_EOL;
+			for ($i = 0 ; $i < $workers ; $i++){
+				$worker_name = between('"', '"', $tmp);
+				$z = $z . ($i + 1) . " ชื่อ " . $worker_name . PHP_EOL;
+				$tmp = after('"alive": ',$tmp);
+				if (before(',',$tmp) == 'true'){
+					$z = $z . "เครื่องทำงานปกติ" . PHP_EOL ;
+				} else {
+					$z = $z . "เครื่องดับ" . PHP_EOL ;
+					}
+				$tmp = after(',',$tmp);
+				$hash = between('"hashrate": ', ',', $tmp);
+				$z = $z . "HashRate " . $hash . " Mh/s" . PHP_EOL;
+				$tmp = after(',',$tmp);
+				$tmp = after(',',$tmp);
+				$hash = between('"hashrate_calculated": ', ',', $tmp);
+				$z = $z . "Hash Calc " . $hash . " Mh/s" . PHP_EOL;
+				$tmp = after(',',$tmp);
+				$tmp = after(',',$tmp);
+				$sec = between('"second_since_submit": ', ',', $tmp);
+				$z = $z . "ตรวจสอบล่าสุดเมื่อ " . (int)($sec / 60) . " นาทีที่แล้ว" . PHP_EOL;
+				$tmp = after('},',$tmp);
+				$z = $z . "----------------------------------------" . PHP_EOL;					
+			}
+			
+		}
+		return $z;
+   };	
+
 	
 function after ($this, $inthat)
     {
