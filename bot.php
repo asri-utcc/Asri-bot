@@ -91,8 +91,10 @@ function text($text) {
 					$tmp = after('"alive": ',$tmp);
 					if if (before(',',$tmp) == '"true"'){
 						$z = $z . "เครื่องทำงานปกติ" . PHP_EOL ;
-					} else {$z = $z . "เครื่องดับ" . PHP_EOL ;}
-					$tmp = after(',',$tmp);
+					} else {
+						$z = $z . "เครื่องดับ" . PHP_EOL ;
+						}
+					/*$tmp = after(',',$tmp);
 					$hash = between('"hashrate": ', ',', $tmp);
 					$z = $z . "HashRate " . $hash . " Mh/s" . PHP_EOL;
 					$tmp = after(',',$tmp);
@@ -102,7 +104,7 @@ function text($text) {
 					$tmp = after(',',$tmp);
 					$tmp = after(',',$tmp);
 					$sec = between('""second_since_submit": ": ', ',', $tmp) / 60;
-					$z = $z . "ตรวจสอบล่าสุดเมื่อ " . (int)$sec . " นาทีที่แล้ว" . PHP_EOL;
+					$z = $z . "ตรวจสอบล่าสุดเมื่อ " . (int)$sec . " นาทีที่แล้ว" . PHP_EOL;*/
 					$tmp = after('},',$tmp);	
 				}
 				//$z = $z . $tmp . PHP_EOL;
