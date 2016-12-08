@@ -4,11 +4,11 @@ $userID = 'U57bbd5f3aa4dd14369a6969c281e6652';
 $url = 'https://api.line.me/v2/bot/message/push';
 $messages = [
 				'type' => 'text',
-				'text' => "Asslamualaikum"
+				'text' => 'Asslamualaikum'
 			];
 $data = [
-				'to' => $replyToken,
-				'messages' => [$messages],
+				'to' => $userID,
+				'message' => $messages,
 			];
 $post = json_encode($data);
 $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
