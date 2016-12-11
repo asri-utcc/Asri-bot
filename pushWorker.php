@@ -17,7 +17,7 @@ function get_url_contents($url){
 }
 
 $html = get_url_contents("http://5d69050d538f.sn.mynetname.net");
-$z = substr($html,0,651);
+$z = substr($html,34,39);
 
 $access_token = 'pTEHeInoIt5on143F+kYg6D//GGUbrDcPTFtrXQGFLCVFPa3OZbjVBkug2cTevT0EkeCF68zeILcBXw28aiucQco/qtCf6HgfgxIuJX0Lm9TSV8WV6iQdGa1KXFuOQvQ0dbT1tinCAqfC6B8MrGyxgdB04t89/1O/w1cDnyilFU=';
 $userID = 'U57bbd5f3aa4dd14369a6969c281e6652';
