@@ -1,7 +1,7 @@
 <?php
 function get_url_contents($url){
         $crl = curl_init();
-        $timeout = 5;
+        $timeout = 10;
         curl_setopt ($crl, CURLOPT_URL,$url);
 		curl_setopt ($crl, CURLOPT_PORT,'3333');
         curl_setopt ($crl, CURLOPT_RETURNTRANSFER, 1);
