@@ -16,7 +16,7 @@ function get_url_contents($url){
         return $ret;
 }
 
-$html = get_url_contents("http://54d69050d538f.sn.mynetname.net");
+$html = get_url_contents("http://5d69050d538f.sn.mynetname.net");
 echo $html;
 
 ?>
