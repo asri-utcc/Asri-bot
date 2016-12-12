@@ -41,7 +41,7 @@ while($x2 <= 2) {
 	
 }
 
-$z='rig1=' . x1 . 'rig2=' . x2;
+$z='darkas888=' . $x1 . ' asri-rig2=' . $x2;
 
 $access_token = 'pTEHeInoIt5on143F+kYg6D//GGUbrDcPTFtrXQGFLCVFPa3OZbjVBkug2cTevT0EkeCF68zeILcBXw28aiucQco/qtCf6HgfgxIuJX0Lm9TSV8WV6iQdGa1KXFuOQvQ0dbT1tinCAqfC6B8MrGyxgdB04t89/1O/w1cDnyilFU=';
 $userID = 'U57bbd5f3aa4dd14369a6969c281e6652';
