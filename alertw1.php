@@ -17,7 +17,7 @@ function get_url_contents($url,$port){
 }
 $x1=0;
 while($x1 <= 2) {
-	$html = get_url_contents("http://5d69050d538f.sn.mynetname.net",'3333');
+	$html = get_url_contents("http://15d69050d538f.sn.mynetname.net",'3333');
 	$z1 = substr($html,34,6);
 	$x1++;
 	if ($z1 !== 'result'){
