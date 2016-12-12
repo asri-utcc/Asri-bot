@@ -40,8 +40,9 @@ while($x2 <= 2) {
 	}
 	
 }
-
-$z='darkas888=' . $x1 . ' asri-rig2=' . $x2;
+if($x1 == 10){$x11 = 'ทำงานปกติ';}else{$x11 = 'เครื่องดับ';}
+if($x2 == 10){$x22= 'ทำงานปกติ';}else{$x22 = 'เครื่องดับ';}
+$z='darkas888=' . $x11 . PHP_EOL .'asri-rig2=' . $x22;
 
 $access_token = 'pTEHeInoIt5on143F+kYg6D//GGUbrDcPTFtrXQGFLCVFPa3OZbjVBkug2cTevT0EkeCF68zeILcBXw28aiucQco/qtCf6HgfgxIuJX0Lm9TSV8WV6iQdGa1KXFuOQvQ0dbT1tinCAqfC6B8MrGyxgdB04t89/1O/w1cDnyilFU=';
 $userID = 'U57bbd5f3aa4dd14369a6969c281e6652';
