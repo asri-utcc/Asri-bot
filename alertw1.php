@@ -16,12 +16,12 @@ function get_url_contents($url,$port){
         return $ret;
 }
 $x1=0;
-while($x1 <= 2) {
+while($x1 <= 4) {
 	$html = get_url_contents("http://5d69050d538f.sn.mynetname.net",'3333');
 	$z1 = substr($html,34,6);
 	$x1++;
 	if ($z1 !== 'result'){
-		sleep(5);
+		sleep(10);
 	}	else {
 		$x1 = 10;
 	}
@@ -29,12 +29,12 @@ while($x1 <= 2) {
 }
 
 $x2=0;
-while($x2 <= 2) {
+while($x2 <= 4) {
 	$html = get_url_contents("http://5d69050d538f.sn.mynetname.net",'3334');
 	$z2 = substr($html,34,6);
 	$x2++;
 	if ($z2 !== 'result'){
-		sleep(5);
+		sleep(10);
 	}	else {
 		$x2 = 10;
 	}
