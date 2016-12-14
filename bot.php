@@ -57,7 +57,7 @@ function text($text) {
 				fclose($myfile1);*/
 				$z = "FN";
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price";}
+				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price" . after(' ', $text);}
 		}
 	else if (strpos($text, 'eth') !== false) {
 			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
