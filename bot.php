@@ -54,13 +54,13 @@ function text($text) {
 	$price = after(' ', $text);
 	$price = after(' ', $price);
 	$price = after(' ', $price);
-	if (before(' ', $text) == 'mon' && str_word_count($text) == 3 && is_float($price)){
+	if (before(' ', $text) == 'mon' && str_word_count($text) == 3 && isfloat($price)){
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
 				$z = "FN" . $price;
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price " . is_float($price);
+				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price " . isfloat($price);
 				}
 		}
 	else if (strpos($text, 'eth') !== false) {
@@ -227,6 +227,9 @@ function between_last ($this, $that, $inthat)
     {
      return after_last($this, before_last($that, $inthat));
     };
+function isfloat($num) {
+    return is_float($num) || is_numeric($num) && ((float) $num != (int) $num);
+	};
 function get_url_contents($url){
         $crl = curl_init();
         $timeout = 5;
