@@ -55,9 +55,9 @@ function text($text) {
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
-				$z = "FN";}
+				$z = "FN";
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ mon <eth,btc> <buy,sell> price";}
+				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price";}
 		}
 	else if (strpos($text, 'eth') !== false) {
 			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
