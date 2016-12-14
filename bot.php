@@ -52,9 +52,10 @@ function text($text) {
 	
 	if (strpos($text, 'mon') !== false) {
 			if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && (after(' ', $text) == 'eth' || after(' ', $text) == 'btc') && (after(' ', after(' ', $text)) == 'eth' || after(' ', after(' ', $text)) == 'btc')){
-				$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
+				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
-				fclose($myfile1);
+				fclose($myfile1);*/
+				$z = "FN";}
 			} else {
 				$z = "วิธีการใช้คำสั้ง mon คือ mon <eth,btc> <buy,sell> price";}
 		}
