@@ -2,12 +2,10 @@
 			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
 			$zeth1 = substr($zeth,strrpos($zeth, ':') + 1);
 			$z1 = strtok($zeth1, '}');
-			if ($z1 < 700){
-				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL;
-				$z = "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
+			iif ($z1 < 700){
+				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
 			} else{
-				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL;
-				$z = "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
+				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 
 
 $access_token = 'pTEHeInoIt5on143F+kYg6D//GGUbrDcPTFtrXQGFLCVFPa3OZbjVBkug2cTevT0EkeCF68zeILcBXw28aiucQco/qtCf6HgfgxIuJX0Lm9TSV8WV6iQdGa1KXFuOQvQ0dbT1tinCAqfC6B8MrGyxgdB04t89/1O/w1cDnyilFU=';
