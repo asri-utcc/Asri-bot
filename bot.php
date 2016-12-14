@@ -51,13 +51,13 @@ function text($text) {
 	
 	
 	if (strpos($text, 'mon') !== false) {
-	if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && (between(' ', ' ', $text) == 'eth' || between(' ', ' ', $text) == 'btc') ){
+	if (before(' ', $text) == 'mon' && str_word_count($text) == 3 && between(' ', ' ', $text) == 'eth' ){
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
 				$z = "FN";
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price " . ctype_digit (after_last(' ', $text));
+				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price ";
 				}
 		}
 	else if (strpos($text, 'eth') !== false) {
