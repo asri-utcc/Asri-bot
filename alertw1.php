@@ -46,7 +46,7 @@ $userID = 'U57bbd5f3aa4dd14369a6969c281e6652';
 $url = 'https://api.line.me/v2/bot/message/push';
 $messages = [
 				'type' => 'text',
-				'text' => $z
+				'text' => $z . PHP_EOL . "ผลลัพธ์ " . $x2
 			];
 $data = [
 				'to' => $userID,
@@ -70,7 +70,7 @@ $userID = 'U57bbd5f3aa4dd14369a6969c281e6652';
 $url = 'https://api.line.me/v2/bot/message/push';
 $messages = [
 				'type' => 'text',
-				'text' => $z
+				'text' => $z . PHP_EOL . "ผลลัพธ์ " . $x1
 			];
 $data = [
 				'to' => $userID,
