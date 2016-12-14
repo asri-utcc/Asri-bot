@@ -60,7 +60,7 @@ function text($text) {
 				fclose($myfile1);*/
 				$z = "FN" . $price;
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price ";
+				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price " . is_float($price);
 				}
 		}
 	else if (strpos($text, 'eth') !== false) {
