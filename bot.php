@@ -51,7 +51,7 @@ function text($text) {
 	
 	
 	if (strpos($text, 'mon') !== false) {
-	if ({before(' ', $text) == 'mon'} && {str_word_count($text) == 4} && {between(' ', ' ', $text) == 'eth' || between(' ', ' ', $text) == 'btc'} && {ctype_digit (after_last(' ', $text)) == TRUE} ){
+	if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && (between(' ', ' ', $text) == 'eth' || between(' ', ' ', $text) == 'btc') && ctype_digit (after_last(' ', $text)) == TRUE ){
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
