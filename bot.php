@@ -54,7 +54,7 @@ function text($text) {
 	$price = after(' ', $text);
 	$price = after(' ', $price);
 	$price = after(' ', $price);
-	if (before(' ', $text) == 'mon' && str_word_count($text) == 3){
+	if (before(' ', $text) == 'mon' && str_word_count($text) == 3 && ctype_digit ($price) == true){
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
