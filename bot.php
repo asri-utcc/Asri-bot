@@ -51,7 +51,7 @@ function text($text) {
 	
 	
 	if (strpos($text, 'mon') !== false) {
-			if (before(' ', $text) == 'mon' && str_word_count($text) == 4){
+			if (before(' ', $text) == 'mon' && str_word_count($text) == 3){
 				$z = "FN";
 			} else {
 				$z = before(' ', $text) . " " . str_word_count($text);}
