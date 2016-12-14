@@ -51,11 +51,12 @@ function text($text) {
 	
 	
 	if (strpos($text, 'mon') !== false) {
-	if (before(' ', $text) == 'mon' && str_word_count($text) == 3 && ctype_digit(after_last(' ', $text)) == True ){
+	$price = after_last(' ', $text)
+	if (before(' ', $text) == 'mon' && str_word_count($text) == 3){
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
-				$z = "FN" . after_last(' ', $text);
+				$z = "FN" . $price;
 			} else {
 				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price ";
 				}
