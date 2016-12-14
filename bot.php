@@ -55,8 +55,8 @@ function text($text) {
 	$price = after(' ', $price);
 	$price = after(' ', $price);
 	if (before(' ', $text) == 'mon' && str_word_count($text) == 3 && isfloat($price)){
-				$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
-				fwrite($myfile1, $text);
+				$myfile1 = fopen("mon.txt", "w") or die("Unable to open file!");
+				fwrite($myfile1, $text . ',');
 				fclose($myfile1);
 				$z = "Monitor Saved";
 			} else {
