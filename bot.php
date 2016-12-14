@@ -55,7 +55,7 @@ function text($text) {
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
-				$z = "FN" . ctype_digit(after_last(' ', $text));
+				$z = "FN" . after_last(' ', $text);
 			} else {
 				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price ";
 				}
