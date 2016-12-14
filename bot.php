@@ -51,13 +51,13 @@ function text($text) {
 	
 	
 	if (strpos($text, 'mon') !== false) {
-			if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && (after(' ', $text) == 'eth' || after(' ', $text) == 'btc') && (after(' ', after(' ', $text)) == 'sell' || after(' ', after(' ', $text)) == 'buy')){
+			if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && (between(' ', ' ', $text) == 'eth' || between(' ', ' ', $text) == 'btc') && (after(' ', after(' ', $text)) == 'sell' || after(' ', after(' ', $text)) == 'buy')){
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
 				$z = "FN";
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price" . after(' ', $text);}
+				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price " . between(' ', ' ', $text);}
 		}
 	else if (strpos($text, 'eth') !== false) {
 			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
