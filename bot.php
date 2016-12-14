@@ -49,7 +49,14 @@ function text($text) {
 	//echo fread($myfile,filesize("webdictionary.txt"));
 	//$zTmp = fgets($myfile);	
 	
-	if (strpos($text, 'eth') !== false) {
+	
+	if (strpos($text, 'mon') !== false) {
+			if (before(' ', $text) == 'mon' && str_word_count($text) == 4){
+				$z = "Mon price";
+			} else {
+				$z = "วิธีการใช้คำสั้ง mon คือ mon <eth,btc> <buy,sell> price";}
+		}
+	else if (strpos($text, 'eth') !== false) {
 			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
 			$zeth1 = substr($zeth,strrpos($zeth, ':') + 1);
 			$z1 = strtok($zeth1, '}');
