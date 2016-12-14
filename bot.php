@@ -51,7 +51,7 @@ function text($text) {
 	
 	
 	if (strpos($text, 'mon') !== false) {
-			if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && (after(' ', $text) == 'eth' || after(' ', $text) == 'btc') && (after(' ', after(' ', $text)) == 'eth' || after(' ', after(' ', $text)) == 'btc')){
+			if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && (after(' ', $text) == 'eth' || after(' ', $text) == 'btc') && (after(' ', after(' ', $text)) == 'sell' || after(' ', after(' ', $text)) == 'buy')){
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
