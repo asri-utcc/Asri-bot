@@ -51,7 +51,7 @@ function text($text) {
 	
 	
 	if (strpos($text, 'mon') !== false) {
-	$price = after_last(' ', $text)
+	$price = after_last(' ', $text);
 	if (before(' ', $text) == 'mon' && str_word_count($text) == 3){
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
