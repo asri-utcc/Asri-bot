@@ -52,9 +52,9 @@ function text($text) {
 	
 	if (strpos($text, 'mon') !== false) {
 			if (before(' ', $text) == 'mon' && str_word_count($text) == 4){
-				$z = before(' ', $text) . " " . str_word_count($text);
+				$z = "FN";
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ mon <eth,btc> <buy,sell> price";}
+				$z = before(' ', $text) . " " . str_word_count($text);}
 		}
 	else if (strpos($text, 'eth') !== false) {
 			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
