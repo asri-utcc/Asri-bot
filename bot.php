@@ -52,7 +52,7 @@ function text($text) {
 	
 	if (strpos($text, 'mon') !== false) {
 			if (before(' ', $text) == 'mon' && str_word_count($text) == 4){
-				$z = "Mon price";
+				$z = before(' ', $text) . " " . str_word_count($text);
 			} else {
 				$z = "วิธีการใช้คำสั้ง mon คือ mon <eth,btc> <buy,sell> price";}
 		}
