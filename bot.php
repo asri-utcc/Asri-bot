@@ -51,7 +51,7 @@ function text($text) {
 	
 	
 	if (strpos($text, 'mon') !== false) {
-			if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && (between(' ', ' ', $text) == 'eth' || between(' ', ' ', $text) == 'btc') && ctype_digit (after_last(' ', $text)) == TRUE ){
+	if ({before(' ', $text) == 'mon'} && {str_word_count($text) == 4} && {between(' ', ' ', $text) == 'eth' || between(' ', ' ', $text) == 'btc'} && {ctype_digit (after_last(' ', $text)) == TRUE} ){
 				/*$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text);
 				fclose($myfile1);*/
@@ -64,22 +64,18 @@ function text($text) {
 			$zeth1 = substr($zeth,strrpos($zeth, ':') + 1);
 			$z1 = strtok($zeth1, '}');
 			if ($z1 < 700){
-				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL;
-				$z = "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก จะ sell ก็ระวังหน่อยนะคะ";
+				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก จะ sell ก็ระวังหน่อยนะคะ";
 			} else{
-				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL;
-				$z = "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย จะ Buy ก็ระวังหน่อยนะคะ";}
+				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย จะ Buy ก็ระวังหน่อยนะคะ";}
 		}
 	else if (strpos($text, 'btc') !== false) {
 			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
 			$zeth1 = substr($zeth,strrpos($zeth, ':') + 1);
 			$z1 = strtok($zeth1, '}');
 			if ($z1 < 700){
-				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL;
-				$z = "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
+				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
 			} else{
-				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL;
-				$z = "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
+				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
 		}
 	else if (strpos($text, 'check') !== false || strpos($text, 'ขุด') !== false) {
 			$z = check();
