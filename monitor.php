@@ -16,10 +16,10 @@ for ($i = 0; $i < $linecount; $i++){
 	if ($cur == 'usd'){$coin = 'USDT_' . strtoupper($coinMon);}
 	else {$coin = 'BTC_' . strtoupper($coinMon);}
 	$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
-	echo between($coin, '{', $zeth);
 	if (between($coin, '{', $zeth) == '":'){
 			$zeth1 = after($coin,$zeth);
 			$price1 = between ('last":"', '",', $zeth1);
+			echo between ('last":"', '",', $zeth1);
 			if ($opt == 'buy'){
 				if($price1 > $price*1.025){
 					$z = 'ราคาของ ' . strtoupper($coinMon) . 'กำลังพุ่ง ขายได้ขายเลย' . PHP_EOL . strtoupper($coinMon) . 'ราคา ' . $price1 . ' ' . strtoupper($cur);
