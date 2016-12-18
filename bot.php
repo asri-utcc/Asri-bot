@@ -66,6 +66,7 @@ function text($text) {
 					$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
 					$zeth1 = after('USDT_BTC',$zeth);
 					$z1 = $z2*between ('last":"', '",', $zeth1);
+					$z1 = number_format((float)$z1, 3, '.', '');
 			}
 			$z = strtoupper($coin) . " ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือ " . $z2 . " btc ค่ะ" . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5), 2, '.', '') . " บาทค่ะ";
 			
