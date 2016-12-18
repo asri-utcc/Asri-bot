@@ -53,7 +53,7 @@ for ($i = 0; $i < $linecount; $i++){
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		$result = curl_exec($ch);
 		curl_close($ch);
-		$zeth = after(',',$file1);
+		$file1 = after(',',$file1);
 		echo $result;
 	}
 }
