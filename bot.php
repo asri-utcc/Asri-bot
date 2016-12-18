@@ -67,7 +67,6 @@ function text($text) {
 			$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
 			$zeth1 = after("BTC_ETH",$zeth);
 			$z2 = between ('last":"', '",', $zeth1);
-			$z2 = number_format((float)$z2, 2, '.', '');
 			$zeth1 = after("USDT_ETH",$zeth);
 			$z1 = between ('last":"', '",', $zeth1);
 			$z1 = number_format((float)$z1, 2, '.', '');
