@@ -85,7 +85,7 @@ function text($text) {
 				fclose($myfile1);
 				$z = "Monitor Saved";
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price <usd,btc>" . $price;
+				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price <usd,btc>" . str_word_count($text);
 				}
 		}
 	else if (strpos($text, 'eth') !== false) {
