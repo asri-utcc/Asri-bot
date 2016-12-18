@@ -64,9 +64,9 @@ function text($text) {
 				}
 		}
 	else if (strpos($text, 'eth') !== false) {
-			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
-			$zeth1 = substr($zeth,strrpos($zeth, ':') + 1);
-			$z1 = strtok($zeth1, '}');
+			$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
+			$zeth1 = after("USDT_ETH",$zeth);
+			$z1 = between ('last":"', '",', $zeth1);
 			if ($z1 < 9.5){
 				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก จะ sell ก็ระวังหน่อยนะคะ";
 			} else{
