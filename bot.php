@@ -50,7 +50,24 @@ function text($text) {
 	//$zTmp = fgets($myfile);	
 	
 	
-	if (strpos($text, 'mon') !== false) {
+	if (strpos($text, 'coin') !== false) {
+	$coin = after(' ', $text);
+	$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
+	$coin1 = 'BTC_' . strtoupper($coin);
+	$coin2 = 'USDT_' . strtoupper($coin);
+	if (between($coin1, '{', $zeth) == '":'){
+			$zeth1 = after($coin1,$zeth);
+			$z2 = between ('last":"', '",', $zeth1);
+			$zeth1 = after($coin2,$zeth);
+			$z1 = between ('last":"', '",', $zeth1);
+			$z1 = number_format((float)$z1, 2, '.', '');
+			$z = strtoupper($coin) . " ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือ " . $z2 . " btc ค่ะ" . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5), 2, '.', '') . " บาทค่ะ";
+			
+			} else {
+				$z = "วิธีการใช้คำสั้ง coin คือ" . PHP_EOL . "coin <CryptoCurrency: btc eth etc xmr>";
+				}
+		}
+	else if (strpos($text, 'mon') !== false) {
 	$price = after(' ', $text);
 	$price = after(' ', $price);
 	$price = after(' ', $price);
