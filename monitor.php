@@ -22,11 +22,11 @@ for ($i = 0; $i < $linecount; $i++){
 			echo between ('last":"', '",', $zeth1);
 			if ($opt == 'buy'){
 				if($price1 > $price*1.025){
-					$z = 'ราคาของ ' . strtoupper($coinMon) . 'กำลังพุ่ง ขายได้ขายเลย' . PHP_EOL . strtoupper($coinMon) . 'ราคา ' . $price1 . ' ' . strtoupper($cur);
+					$z = 'ราคาของ ' . strtoupper($coinMon) . ' กำลังพุ่ง ขายได้ขายเลย' . PHP_EOL . strtoupper($coinMon) . 'ราคา ' . $price1 . ' ' . strtoupper($cur) . PHP_EOL . 'ราคาที่ซื้อมา ' . $price . ' ' . strtoupper($cur);
 				}
 			} else if ($opt == 'sell'){
-				if($price1 > $price*0.975){
-					$z = 'ราคาของ ' . strtoupper($coinMon) . 'กำลังลง มีตังค์รีบซื้อเลย' . PHP_EOL . strtoupper($coinMon) . 'ราคา ' . $price1 . ' ' . strtoupper($cur);
+				if($price1 < $price*0.975){
+					$z = 'ราคาของ ' . strtoupper($coinMon) . ' กำลังลง มีตังค์รีบซื้อเลย' . PHP_EOL . strtoupper($coinMon) . ' ราคา ' . $price1 . ' ' . strtoupper($cur) . PHP_EOL . 'ราคาที่ขายไปก่อนหน้า ' . $price . ' ' . strtoupper($cur);
 				}
 			}		
 	} else { $z = strtoupper($coinMon) . 'เหรียญนี้ไม่มีในระบบ Poloniex ค่ะ รีบลบออกด่วน';}
