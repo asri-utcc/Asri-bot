@@ -7,6 +7,7 @@ for ($i = 0; $i < $linecount; $i++){
 	$mon1 = before(',',$file1);
 	$mon1 = after(' ',$mon1);
 	$coinMon = before(' ',$mon1);
+	echo $coinMon;
 	$mon1 = after(' ',$mon1);
 	$opt = before(' ',$mon1);
 	$mon1 = after(' ',$mon1);
@@ -15,7 +16,7 @@ for ($i = 0; $i < $linecount; $i++){
 	if ($cur == 'usd'){$coin = 'USDT_' . strtoupper($coinMon);}
 	else {$coin = 'BTC_' . strtoupper($coinMon);}
 	$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
-	
+	echo between($coin, '{', $zeth);
 	if (between($coin, '{', $zeth) == '":'){
 			$zeth1 = after($coin,$zeth);
 			$price1 = between ('last":"', '",', $zeth1);
