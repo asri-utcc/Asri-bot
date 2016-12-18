@@ -74,13 +74,14 @@ function text($text) {
 				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5), 2, '.', '') . " บาทค่ะ" . PHP_EOL . "ราคาดีหน่อย จะ Buy ก็ระวังหน่อยนะคะ";}
 		}
 	else if (strpos($text, 'btc') !== false) {
-			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
-			$zeth1 = substr($zeth,strrpos($zeth, ':') + 1);
-			$z1 = strtok($zeth1, '}');
-			if ($z1 < 700){
-				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก ดองไว้ก่อนค่ะ อย่าเพิ่งขาย";
+			$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
+			$zeth1 = after("USDT_BTC",$zeth);
+			$z1 = between ('last":"', '",', $zeth1);
+			$z1 = number_format((float)$z1, 2, '.', '');
+			if ($z1 < 750){
+				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5), 2, '.', '') . " บาทค่ะ" . PHP_EOL . "ราคาต่ำมาก จะ sell ก็ระวังหน่อยนะคะ";
 			} else{
-				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย ขายได้ขายเลยคะ";}
+				$z = "BTC ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5), 2, '.', '') . " บาทค่ะ" . PHP_EOL . "ราคาดีหน่อย จะ Buy ก็ระวังหน่อยนะคะ";}
 		}
 	else if (strpos($text, 'check') !== false || strpos($text, 'ขุด') !== false) {
 			$z = check();
