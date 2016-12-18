@@ -78,13 +78,13 @@ function text($text) {
 	$price = after(' ', $text);
 	$price = after(' ', $price);
 	$price = after(' ', $price);
-	if (before(' ', $text) == 'mon' && str_word_count($text) == 3 && isfloat($price)){
+	if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && isfloat($price)){
 				$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text . ',');
 				fclose($myfile1);
 				$z = "Monitor Saved";
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price " . isfloat($price);
+				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price <usd,btc>" . isfloat($price);
 				}
 		}
 	else if (strpos($text, 'eth') !== false) {
