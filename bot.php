@@ -55,7 +55,7 @@ function text($text) {
 	$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
 	$coin1 = 'BTC_' . strtoupper($coin);
 	$coin2 = 'USDT_' . strtoupper($coin);
-	if (between($coin1, '{', $zeth) == '":'){
+	if (between($coin1, '{', $zeth) == '":' || between($coin2, '{', $zeth) == '":'){
 			$zeth1 = after($coin1,$zeth);
 			$z2 = between ('last":"', '",', $zeth1);
 			$zeth1 = after($coin2,$zeth);
