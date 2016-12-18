@@ -69,9 +69,9 @@ function text($text) {
 			$z1 = between ('last":"', '",', $zeth1);
 			$z1 = number_format((float)$z1, 2, '.', '');
 			if ($z1 < 9.5){
-				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาต่ำมาก จะ sell ก็ระวังหน่อยนะคะ";
+				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5), 2, '.', '') . " บาทค่ะ" . PHP_EOL . "ราคาต่ำมาก จะ sell ก็ระวังหน่อยนะคะ";
 			} else{
-				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . ($z1 * 35.5) . "บาทค่ะ ราคาดีหน่อย จะ Buy ก็ระวังหน่อยนะคะ";}
+				$z = "ETH ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5), 2, '.', '') . " บาทค่ะ" . PHP_EOL . "ราคาดีหน่อย จะ Buy ก็ระวังหน่อยนะคะ";}
 		}
 	else if (strpos($text, 'btc') !== false) {
 			$zeth = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
