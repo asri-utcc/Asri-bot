@@ -78,7 +78,7 @@ function text($text) {
 	$price = after(' ', $text);
 	$price = after(' ', $price);
 	$price = after(' ', $price);
-	if (before(' ', $text) == 'mon' && str_word_count($text) == 4 && isfloat($price)){
+	if (before(' ', $text) == 'mon' && str_word_count($text) == 5 && isfloat($price)){
 				$myfile1 = fopen("mon.txt", "a+") or die("Unable to open file!");
 				fwrite($myfile1, $text . ',');
 				fclose($myfile1);
