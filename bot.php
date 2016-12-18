@@ -74,6 +74,13 @@ function text($text) {
 				$z = "วิธีการใช้คำสั้ง coin คือ" . PHP_EOL . "coin <CryptoCurrency: btc eth etc xmr>";
 				}
 		}
+	else if (strpos($text, 'del all mon') !== false) {
+		$myfile1 = fopen("mon.txt", "w") or die("Unable to open file!");
+		fwrite($myfile1, '');
+		fclose($myfile1);
+		$z = "Monitor All Delete";
+			
+		}
 	else if (strpos($text, 'mon') !== false) {
 	$price = after(' ', $text);
 	$price = after(' ', $price);
