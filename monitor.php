@@ -1,13 +1,6 @@
 <?php
 $file="https://dry-sea-41725.herokuapp.com/mon.txt";
-$linecount = 0;
-$handle = fopen($file, "r");
-while(!feof($handle)){
-  $line = fgets($handle);
-  $linecount++;
-}
-
-fclose($handle);
-
+$zeth = file_get_contents($file);
+$linecount = substr_count($zeth,',');
 echo $linecount;
 ?>
