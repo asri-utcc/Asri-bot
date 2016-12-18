@@ -57,6 +57,7 @@ for ($i = 0; $i < $linecount; $i++){
 		echo $result;
 	}
 	$file1 = after(',',$file1);
+	echo $i . PHP_EOL;
 }
 
 
