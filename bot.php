@@ -121,7 +121,8 @@ function text($text) {
 	else if (strpos($text, 'help') !== false) {
 			$z = "นี่คือคำสั่งทั้งหมดที่ใช้ได้" . PHP_EOL;
 			$z = $z . "coin <crytocur>" . PHP_EOL;
-			$z = $z . "mon <cyrpto> <opt> price <usd,btc>" . PHP_EOL;
+			$z = $z . "calc <crytocur> %" . PHP_EOL;
+			$z = $z . "mon cyrpto opt price btc,usd" . PHP_EOL;
 			$z = $z . "show all mon" . PHP_EOL;
 			$z = $z . "del all mon" . PHP_EOL;
 			$z = $z . "check rig status" . PHP_EOL;
