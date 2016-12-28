@@ -90,7 +90,7 @@ function text($text) {
 			$mon1 = before(',',$zTmp);
 			$zTmp = after(' ',$zTmp);
 			$z= $z . $mon1 . PHP_EOL;
-			
+		}	
 		}
 	else if (strpos($text, 'help') !== false) {
 			$z = "นี่คือคำสั่งทั้งหมดที่ใช้ได้" . PHP_EOL;
