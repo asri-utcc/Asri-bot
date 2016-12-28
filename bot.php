@@ -86,12 +86,17 @@ function text($text) {
 		$myfile2 = fopen("mon.txt", "r") or die("Unable to open file!");
 		while (($zTmp = fgets($myfile2)) !== false) {
 				$first = strtok($zTmp, ',');
-				$z = $z + $first + PHP_EOL;
+				$z = $z . $first . PHP_EOL;
 			}
 		}
 	else if (strpos($text, 'help') !== false) {
-			$z = "นี่คือคำสั่งทั้งหมดที่ใช้ได้";
-			//$z = $z + "นี่คือคำสั่งทั้งหมดที่ใช้ได้";		
+			$z = "นี่คือคำสั่งทั้งหมดที่ใช้ได้" . PHP_EOL;
+			$z = $z . "coin <crytocur>" . PHP_EOL;
+			$z = $z . "mon <cyrpto> <opt> price <usd,btc>" . PHP_EOL;
+			$z = $z . "show all mon" . PHP_EOL;
+			$z = $z . "del all mon" . PHP_EOL;
+			$z = $z . "check rig status" . PHP_EOL;
+			$z = $z . "dwarpool balance" . PHP_EOL;
 		}
 	else if (strpos($text, 'mon') !== false) {
 	$price = after(' ', $text);
@@ -104,7 +109,7 @@ function text($text) {
 				fclose($myfile1);
 				$z = "Monitor Saved";
 			} else {
-				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <eth,btc> <buy,sell> price <usd,btc>";
+				$z = "วิธีการใช้คำสั้ง mon คือ" . PHP_EOL . "mon <cyrpto> <buy,sell> price <usd,btc>";
 				}
 		}
 	else if (strpos($text, 'eth') !== false) {
