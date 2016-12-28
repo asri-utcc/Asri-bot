@@ -88,7 +88,7 @@ function text($text) {
 		$linecount = substr_count($zTmp,',');
 		for ($i = 0; $i < $linecount; $i++){
 			$mon1 = before(',',$zTmp);
-			$zTmp = after(' ',$zTmp);
+			$zTmp = after(',',$zTmp);
 			$z= $z . $mon1 . PHP_EOL;
 		}	
 		}
