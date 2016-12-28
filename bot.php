@@ -74,6 +74,31 @@ function text($text) {
 				$z = "วิธีการใช้คำสั้ง coin คือ" . PHP_EOL . "coin <CryptoCurrency: btc eth etc xmr>";
 				}
 		}
+	else if (strpos($text, 'calc') !== false) {
+	$coin = between(' ', ' ', $text);
+	$persen = after_last(' ', $text);
+	$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
+	$coin1 = 'BTC_' . strtoupper($coin);
+	$coin2 = 'USDT_' . strtoupper($coin);
+	if (between($coin1, '{', $zeth) == '":' || between($coin2, '{', $zeth) == '":'){
+			$zeth1 = after($coin1,$zeth);
+			$z2 = between ('last":"', '",', $zeth1);
+			$zeth1 = after($coin2,$zeth);
+			$z1 = between ('last":"', '",', $zeth1);
+			$z1 = number_format((float)$z1, 2, '.', '');
+			if ($coin == 'btc'){$z2=1;}
+			if (between($coin2, '{', $zeth) !== '":'){
+					$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
+					$zeth1 = after('USDT_BTC',$zeth);
+					$z1 = $z2*between ('last":"', '",', $zeth1);
+					//$z1 = number_format((float)$z1, 3, '.', '');
+			}
+			$z = strtoupper($coin) . " คำนวนได้ $" . $z1*(1+($persen/100)) . PHP_EOL . "หรือ " . $z2*(1+($persen/100)) . " btc ค่ะ" . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5)*(1+($persen/100)), 2, '.', '') . " บาทค่ะ";
+			
+			} else {
+				$z = "วิธีการใช้คำสั้ง coin คือ" . PHP_EOL . "coin <CryptoCurrency: btc eth etc xmr>";
+				}
+		}
 	else if (strpos($text, 'del all mon') !== false) {
 		$myfile1 = fopen("mon.txt", "w") or die("Unable to open file!");
 		fwrite($myfile1, '');
