@@ -81,6 +81,15 @@ function text($text) {
 		$z = "Monitor All Delete";
 			
 		}
+	else if (strpos($text, 'show all mon') !== false) {
+		$file="https://dry-sea-41725.herokuapp.com/mon.txt";
+		$file1 = file_get_contents($file);
+		$linecount = substr_count($file1,',');
+		$z='';
+		for ($i = 0; $i < $linecount; $i++){
+			$z = $z + before(',',$file1);
+		}
+		}
 	else if (strpos($text, 'mon') !== false) {
 	$price = after(' ', $text);
 	$price = after(' ', $price);
