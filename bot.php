@@ -94,7 +94,7 @@ function text($text) {
 					$z1 = $z2*between ('last":"', '",', $zeth1);
 					//$z1 = number_format((float)$z1, 3, '.', '');
 			}
-			$z = strtoupper($coin) . " คำนวนได้ $" . $z1*(1 + $persen / 100 ) . PHP_EOL . "หรือ " . $z2*(1 + $persen / 100 ) . " btc ค่ะ" . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5)*( 1 + $persen / 100 ), 2, '.', '') . " บาทค่ะ";
+			$z = strtoupper($coin) . " คำนวนได้ $" . $z1*(1 + ($persen / 100) ) . PHP_EOL . "หรือ " . $z2*(1 + ($persen / 100) ) . " btc ค่ะ" . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5)*( 1 + ($persen / 100) ), 2, '.', '') . " บาทค่ะ";
 			
 			} else {
 				$z = "วิธีการใช้คำสั้ง coin คือ" . PHP_EOL . "coin <CryptoCurrency: btc eth etc xmr>";
