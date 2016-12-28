@@ -82,14 +82,16 @@ function text($text) {
 			
 		}
 	else if (strpos($text, 'show all mon') !== false) {
-		$file="https://dry-sea-41725.herokuapp.com/mon.txt";
-		$file1 = file_get_contents($file);
-		$linecount = substr_count($file1,',');
-		$z= $file1;
-		for ($i = 0; $i < $linecount; $i++){
-			$z = $z + $file1 + PHP_EOL;
-			$file1 = after(',',$file1);
+		$z='';
+		$myfile2 = fopen("listword.txt", "r") or die("Unable to open file!");
+		while (($zTmp = fgets($myfile2)) !== false) {
+				$first = strtok($zTmp, ',');
+				$z = $z + $first + PHP_EOL;
+			}
 		}
+	else if (strpos($text, 'help') !== false) {
+			$z = "นี่คือคำสั่งทั้งหมดที่ใช้ได้";
+			$z = $z + "นี่คือคำสั่งทั้งหมดที่ใช้ได้";		
 		}
 	else if (strpos($text, 'mon') !== false) {
 	$price = after(' ', $text);
