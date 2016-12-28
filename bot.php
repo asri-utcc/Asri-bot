@@ -77,7 +77,7 @@ function text($text) {
 	else if (strpos($text, 'calc') !== false) {
 	$coin = between(' ', ' ', $text);
 	$persen = after(' ', $text);
-	$persen = after(' ', $text);
+	$persen = after(' ', $persen);
 	$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
 	$coin1 = 'BTC_' . strtoupper($coin);
 	$coin2 = 'USDT_' . strtoupper($coin);
