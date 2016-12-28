@@ -91,7 +91,7 @@ function text($text) {
 		}
 	else if (strpos($text, 'help') !== false) {
 			$z = "นี่คือคำสั่งทั้งหมดที่ใช้ได้";
-			$z = $z + "นี่คือคำสั่งทั้งหมดที่ใช้ได้";		
+			//$z = $z + "นี่คือคำสั่งทั้งหมดที่ใช้ได้";		
 		}
 	else if (strpos($text, 'mon') !== false) {
 	$price = after(' ', $text);
