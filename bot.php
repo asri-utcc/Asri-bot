@@ -84,7 +84,7 @@ function text($text) {
 	else if (strpos($text, 'show all mon') !== false) {
 		$z='';
 		$myfile2 = fopen("mon.txt", "r") or die("Unable to open file!");
-		$zTmp = fgets($myfile2)
+		$zTmp = fgets($myfile2);
 		$linecount = substr_count($zTmp,',');
 		for ($i = 0; $i < $linecount; $i++){
 			$mon1 = before(',',$zTmp);
