@@ -84,10 +84,13 @@ function text($text) {
 	else if (strpos($text, 'show all mon') !== false) {
 		$z='';
 		$myfile2 = fopen("mon.txt", "r") or die("Unable to open file!");
-		while (($zTmp = fgets($myfile2)) !== false) {
-				$first = strtok($zTmp, ',');
-				$z = $z . $first . PHP_EOL;
-			}
+		$zTmp = fgets($myfile2)
+		$linecount = substr_count($zTmp,',');
+		for ($i = 0; $i < $linecount; $i++){
+			$mon1 = before(',',$zTmp);
+			$zTmp = after(' ',$zTmp);
+			$z= $z . $mon1 . PHP_EOL;
+			
 		}
 	else if (strpos($text, 'help') !== false) {
 			$z = "นี่คือคำสั่งทั้งหมดที่ใช้ได้" . PHP_EOL;
