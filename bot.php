@@ -85,9 +85,9 @@ function text($text) {
 		$file="https://dry-sea-41725.herokuapp.com/mon.txt";
 		$file1 = file_get_contents($file);
 		$linecount = substr_count($file1,',');
-		$z='';
+		$z= $file1;
 		for ($i = 0; $i < $linecount; $i++){
-			$z = $z + before(',',$file1) + PHP_EOL;
+			$z = $z + $file1 + PHP_EOL;
 			$file1 = after(',',$file1);
 		}
 		}
