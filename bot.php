@@ -83,7 +83,7 @@ function text($text) {
 		}
 	else if (strpos($text, 'show all mon') !== false) {
 		$z='';
-		$myfile2 = fopen("listword.txt", "r") or die("Unable to open file!");
+		$myfile2 = fopen("mon.txt", "r") or die("Unable to open file!");
 		while (($zTmp = fgets($myfile2)) !== false) {
 				$first = strtok($zTmp, ',');
 				$z = $z + $first + PHP_EOL;
