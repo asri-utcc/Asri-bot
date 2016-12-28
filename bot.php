@@ -87,7 +87,8 @@ function text($text) {
 		$linecount = substr_count($file1,',');
 		$z='';
 		for ($i = 0; $i < $linecount; $i++){
-			$z = $z + before(',',$file1);
+			$z = $z + before(',',$file1) + PHP_EOL;
+			$file1 = after(',',$file1);
 		}
 		}
 	else if (strpos($text, 'mon') !== false) {
