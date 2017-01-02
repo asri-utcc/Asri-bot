@@ -60,7 +60,11 @@ function text($text) {
 			$z2 = between ('last":"', '",', $zeth1);
 			$zeth1 = after($coin2,$zeth);
 			$z1 = between ('last":"', '",', $zeth1);
-			$z1 = number_format((float)$z1, 2, '.', '');
+			if ($z1 > 15){
+				$z1 = number_format((float)$z1, 2, '.', '');
+			} else (
+				$z1 = number_format((float)$z1, 4, '.', '');
+			)
 			if ($coin == 'btc'){$z2=1;}
 			if (between($coin2, '{', $zeth) !== '":'){
 					$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
@@ -68,7 +72,6 @@ function text($text) {
 					$z1 = $z2*between ('last":"', '",', $zeth1);
 					//$z1 = number_format((float)$z1, 3, '.', '');
 			}
-			
 			$z = strtoupper($coin) . " ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือ " . $z2 . " btc ค่ะ" . PHP_EOL . "หรือประมาน " . number_format((float)($z1 * 35.5), 2, '.', '') . " บาทค่ะ";
 			
 			} else {
