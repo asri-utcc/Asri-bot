@@ -69,9 +69,9 @@ function text($text) {
 					//$z1 = number_format((float)$z1, 3, '.', '');
 			}
 			if($z1>15){
-				$z1 = number_format((float)($z1 * 35.5), 2, '.', '')
+				$z1 = number_format((float)($z1 * 35.5), 2, '.', '');
 			} else (
-				$z1 = number_format((float)($z1 * 35.5), 4, '.', '')
+				$z1 = number_format((float)($z1 * 35.5), 4, '.', '');
 			)
 			$z = strtoupper($coin) . " ตอนนี้ราคา $" . $z1 . PHP_EOL . "หรือ " . $z2 . " btc ค่ะ" . PHP_EOL . "หรือประมาน " . $z1 . " บาทค่ะ";
 			
