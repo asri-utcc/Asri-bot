@@ -60,7 +60,7 @@ function text($text) {
 			$z2 = between ('last":"', '",', $zeth1);
 			$zeth1 = after($coin2,$zeth);
 			$z1 = between ('last":"', '",', $zeth1);
-			if ($z1 > 15){
+			if (number_format((float)$z1, 2, '.', '') > 15){
 				$z1 = number_format((float)$z1, 2, '.', '');
 			} else (
 				$z1 = number_format((float)$z1, 4, '.', '');
