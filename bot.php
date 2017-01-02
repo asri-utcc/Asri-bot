@@ -62,9 +62,9 @@ function text($text) {
 			$z1 = between ('last":"', '",', $zeth1);
 			if (number_format((float)$z1, 2, '.', '') > 15){
 				$z1 = number_format((float)$z1, 2, '.', '');
-			} else (
+			} else {
 				$z1 = number_format((float)$z1, 4, '.', '');
-			)
+			}
 			if ($coin == 'btc'){$z2=1;}
 			if (between($coin2, '{', $zeth) !== '":'){
 					$zeth = file_get_contents('https://poloniex.com/public?command=returnTicker');
